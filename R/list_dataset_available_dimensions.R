@@ -77,10 +77,9 @@ list_dataset_available_dimensions<-function(con,dataset_metadata){
   unique_values_dimension<-dbGetQuery(con,paste0("SELECT DISTINCT ", available_dimensions_in_dataset$db_fact_table_colname[i] ," FROM ",table_name," WHERE id_metadata=",id_metadata))
   
   # the condition hereunder filters the columns that are not null (i.e. do not have only UNKNOWN values)
-  if (nrow(unique_values_dimension)==1 & unique_values_dimension[1,1]==0) { } else { 
+  #if (nrow(unique_values_dimension)==1 & unique_values_dimension[1,1]==0) { } else { 
       available_dimensions_in_dataset_not_null<-c(available_dimensions_in_dataset_not_null, available_dimensions_in_dataset$dimension[i]) }
-  
-  } 
+  #} 
   
   
 return(available_dimensions_in_dataset_not_null)  
